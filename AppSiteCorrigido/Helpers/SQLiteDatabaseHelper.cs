@@ -23,11 +23,15 @@ namespace AppSiteCorrigido.Helpers
             return _connection.InsertAsync(p);
         }
 
-        //public Task<List<pedagio>> Update(pedagio p)
-        //{
-        //    string sql = "Update pedagio set local=?, valor=? WHERE id=?";
+        public Task<int> Delete(int id)
+        {
+            return _connection.Table<pedagio>().DeleteAsync();
+        }
 
-        //    return _conn.QueryAsync<pedagio>(sql);
-        //}
+        public Task<List<pedagio>> GetAll()
+        {
+            return _connection.Table<pedagio>().ToListAsync();
+        }
+        
     }
 }
